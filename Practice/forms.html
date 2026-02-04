@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - Marc Psalmer Garata</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <form id="registrationForm" action="#" method="post" autocomplete="on">
+        
+        <fieldset>
+            <legend>Registration Form</legend>
+            
+            <label for="fullname">Full Name: *</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            
+            <label for="email">Email Address: *</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            
+            <label for="password">Password: *</label>
+            <input type="password" id="password" name="password" placeholder="Create a password (min. 8 characters)" minlength="8" required>
+            
+            <label for="confirmPassword">Confirm Password: *</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" minlength="8" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="0" max="120" placeholder="18">
+            
+            <label for="birthdate">Date of Birth:</label>
+            <input type="date" id="birthdate" name="birthdate">
+        </fieldset>
+   
+        <fieldset>
+            <legend>Additional Information</legend>
+            
+            <label>Interests:</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="sports" name="interests" value="sports">
+                    Sports
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="music" name="interests" value="music">
+                    Music
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="reading" name="interests" value="reading">
+                    Reading
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="travel" name="interests" value="travel">
+                    Travel
+                </label>
+            </div>
+            
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="">Select a country</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="ca">Canada</option>
+                <option value="au">Australia</option>
+                <option value="ph" selected>Philippines</option>
+            </select>
+            
+            <label for="comments">Comments (Optional):</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Tell us a bit about yourself..."></textarea>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Terms and Conditions</legend>
+            
+            <div class="terms-box">
+                <p>By submitting this form, you confirm that all information provided is true, accurate, and complete to the best of your knowledge. You agree that any false or misleading information may result in the rejection of your submission or future disqualification.</p>
+                
+                <p>You consent to the collection, use, and processing of your personal information solely for purposes related to this form, in accordance with applicable data privacy laws. Your information will not be shared with third parties without your consent, unless required by law or necessary to fulfill the stated purpose.</p>
+                
+                <p>You acknowledge that submission of this form does not guarantee approval, participation, or acceptance unless explicitly stated. The organization reserves the right to review, approve, reject, or request additional information at its discretion.</p>
+            </div>
+            
+            <label class="checkbox-label terms-checkbox">
+                <input type="checkbox" id="terms" name="terms" value="accepted" required>
+                I agree to the terms and conditions *
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Submit Registration</legend>
+            
+            <a href="Landing.html" type="submit" class="button">Register</a>
+            <a type="reset" class="button">Clear Form</a>
+        </fieldset>
+
+    </form>
+
+</body>
+</html>
