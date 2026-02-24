@@ -1,49 +1,54 @@
+<?php
+include "process.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>REMS Form</title>
+    <title>Sales Summary</title>
 </head>
 <body>
 
-<h2>Real Estate Management System</h2>
+<h2>Sales Summary</h2>
 
-<form method="POST" action="">
-    Property Title: <input type="text" name="title"><br><br>
-    Price (PHP): <input type="number" name="price"><br><br>
-    Address: <input type="text" name="address"><br><br>
-    <input type="submit" name="submit" value="Submit">
-</form>
+<?php if ($item): ?>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<p><strong>Item:</strong>
+<?php echo $item['name']; ?>
+</p>
 
-    $title   = $_POST['title'];
-    $price   = $_POST['price'];
-    $address = $_POST['address'];
+<p><strong>Price:</strong>
+<?php echo formatCurrency($item['price']); ?>
+</p>
 
-    
-    if (empty($title)) {
-        echo "Error: Property title is required." . "<br>";
-    }
+<p><strong>Quantity:</strong>
+<?php echo $item['quantity']; ?>
+</p>
 
-    if (empty($price)) {
-        echo "Error: Price is required." . "<br>";
-    } elseif (!is_numeric($price) || $price <= 0) {
-        echo "Error: Price must be a valid positive number." . "<br>";
-    }
+<hr>
 
-    if (empty($address)) {
-        echo "Error: Address is required." . "<br>";
-    }
+<p><strong>Subtotal:</strong>
+<?php echo formatCurrency($item['subtotal']); ?>
+</p>
 
-    if (!empty($title) && !empty($address) && is_numeric($price) && $price > 0) {
-        echo "<h3>Property Listing Received (POST)</h3>";
-        echo "Title: "    . htmlspecialchars(string: $title)   . "<br>";
-        echo "Price: PHP " . htmlspecialchars(string: $price)  . "<br>";
-        echo "Address: "  . htmlspecialchars(string: $address);
-    }
-}
-?>
+<p><strong>Discount:</strong>
+<?php echo formatCurrency($item['discount']); ?>
+</p>
+
+<p><strong>Tax:</strong>
+<?php echo formatCurrency($item['tax']); ?>
+</p>
+
+<p><strong>Final Amount:</strong>
+<?php echo formatCurrency($item['finalAmount']); ?>
+</p>
+
+<?php else: ?>
+<p>No data submitted.</p>
+<?php endif; ?>
+
+<br>
+<a href="form.php">Add Another Item</a>
 
 </body>
 </html>
